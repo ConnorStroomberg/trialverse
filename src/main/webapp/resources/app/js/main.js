@@ -7,13 +7,14 @@ require.config({
     'angular-resource': 'bower_components/angular-resource/angular-resource',
     'angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router',
     'domReady': 'bower_components/requirejs-domready/domReady',
-    'foundation': 'bower_components/foundation/js/foundation.min',
+    'foundation': 'bower_components/foundation/js/foundation',
     'mmfoundation': 'bower_components/angular-foundation/mm-foundation',
     'rdfstore': 'bower_components/rdfstore-js/index',
     'lodash': 'bower_components/lodash/dist/lodash.min',
     'jquery-rdfquery-core': 'bower_components/jquery-rdfquery/js/jquery.rdfquery.core',
     'jquery-rdfquery-rdfa': 'bower_components/jquery-rdfquery/js/jquery.rdfquery.rdfa',
-    'jquery-rdfquery-rules': 'bower_components/jquery-rdfquery/js/jquery.rdfquery.rules'
+    'jquery-rdfquery-rules': 'bower_components/jquery-rdfquery/js/jquery.rdfquery.rules',
+    'ngSticky':'bower_components/ngSticky/sticky',
   },
   baseUrl: 'app/js',
   shim: {
@@ -53,6 +54,9 @@ require.config({
     'jquery-rdfquery-rules': {
       deps: ['jQuery'],
       exports: 'rdfqueryRules'
+    },
+    'ngSticky': {
+      deps: ['angular']
     }
   },
   priority: ['angular']

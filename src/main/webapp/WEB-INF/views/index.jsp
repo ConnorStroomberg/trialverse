@@ -20,7 +20,7 @@
   <body>
     <session-expired-directive></session-expired-directive>
 
-    <nav class="top-bar" data-topbar>
+    <nav sticky class="top-bar" data-topbar style="z-index:99;">
       <ul class="title-area">
         <li class="name">
           <h1>
@@ -43,10 +43,12 @@
         </ul>
       </section>
     </nav>
-    <section>
-      <div class="color-stripe"></div>
+    <section  >
+      <div sticky class="color-stripe" style="z-index:98;" offset="45"></div>
     </section>
-    <div ui-view></div>
+    <div ui-view style="margin-top:60px">
+
+    </div>
     <script>
 
       window.config = {

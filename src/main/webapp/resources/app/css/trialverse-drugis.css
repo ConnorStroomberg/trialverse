@@ -4432,20 +4432,20 @@ kbd {
 
 /* line 14, ../../drugis-css/foundation/components/_magellan.scss */
 [data-magellan-expedition] {
-  background: white;
+  background: red;
   z-index: 50;
   min-width: 100%;
   padding: 10px;
 }
-/* line 20, ../../drugis-css/foundation/components/_magellan.scss */
+/* line 21, ../../drugis-css/foundation/components/_magellan.scss */
 [data-magellan-expedition] .sub-nav {
   margin-bottom: 0;
 }
-/* line 22, ../../drugis-css/foundation/components/_magellan.scss */
+/* line 23, ../../drugis-css/foundation/components/_magellan.scss */
 [data-magellan-expedition] .sub-nav dd {
   margin-bottom: 0;
 }
-/* line 23, ../../drugis-css/foundation/components/_magellan.scss */
+/* line 24, ../../drugis-css/foundation/components/_magellan.scss */
 [data-magellan-expedition] .sub-nav .active {
   line-height: 1.8em;
 }
@@ -8382,4 +8382,20 @@ input[type='file'] {
 .study-item {
   margin: 0 0 3rem 0;
   border-left: solid 1px #dddddd;
+}
+
+/* line 43, ../../sass/trialverse-drugis.scss */
+.mycentered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, 53px);
+}
+
+/* line 51, ../../sass/trialverse-drugis.scss */
+.color-stripe {
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(204, 51, 51, 0.75);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(204, 51, 51, 0.75);
+  box-shadow: 1px 1px 2px 0px rgba(204, 51, 51, 0.75);
 }

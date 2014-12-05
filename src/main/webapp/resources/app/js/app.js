@@ -12,7 +12,8 @@ define(
     'rdfstoreWrap/rdfstoreWrap',
     'angular-resource',
     'rdfstore',
-    'lodash'
+    'lodash',
+    'ngSticky'
   ],
   function(angular) {
     var dependencies = [
@@ -21,7 +22,8 @@ define(
       'trialverse.dataset',
       'trialverse.rdfstoreWrap',
       'trialverse.util',
-      'trialverse.study'
+      'trialverse.study',
+      'sticky'
     ];
 
     var app = angular.module('trialverse', dependencies);

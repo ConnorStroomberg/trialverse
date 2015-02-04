@@ -6,6 +6,18 @@ define([],
       $scope.item = {};
 
       $scope.createArm = function () {
+        if($scope.item.comment) {
+          $scope.item.comment = $scope.item.comment
+    .replace(/[\\]/g, '\\\\')
+    .replace(/[\"]/g, '\\\"')
+    .replace(/[\/]/g, '\\/')
+    .replace(/[\b]/g, '\\b')
+    .replace(/[\f]/g, '\\f')
+    .replace(/[\n]/g, '\\n')
+    .replace(/[\r]/g, '\\r')
+    .replace(/[\t]/g, '\\t');
+        }
+        
         ArmService.addItem($scope.item, $state.params.studyUUID).then(function() {
           console.log('arm ' + $scope.item + 'create');
           callback();

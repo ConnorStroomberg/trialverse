@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -80,8 +81,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .deleteCookies("JSESSIONID")
             .and().authorizeRequests()
             .antMatchers(whitelist).permitAll()
-            .antMatchers("/monitoring").hasRole("MONITORING")
-            .antMatchers("/**").authenticated()
+            .antMatchers(HttpMethod.GET, "/**").permitAll()
+            .antMatchers(HttpMethod.POST, "/**").authenticated()
+            .antMatchers(HttpMethod.PUT, "/**").authenticated()
+            .antMatchers(HttpMethod.DELETE, "/**").authenticated()
             .and().rememberMe()
             .and().exceptionHandling()
             .authenticationEntryPoint(new Http403ForbiddenEntryPoint())
@@ -91,7 +94,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .alwaysUsePostLoginUrl(true))
             .and().csrf().requireCsrfProtectionMatcher(request ->
             !(requestMatchers.stream().anyMatch(matcher -> matcher.matches(request))
-                    || Optional.fromNullable(request.getHeader("X-Auth-Application-Key")).isPresent()))
+                    || Optional.fromNullable(request.getHeader("X-Auth-Application-Key")).isPresent()
+                    || HttpMethod.GET.toString().equals(request.getMethod())))
             .and().setSharedObject(ApplicationContext.class, context)
     ;
 

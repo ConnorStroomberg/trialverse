@@ -46,19 +46,20 @@ public class IndexController {
   @RequestMapping("/")
   public String index(Principal currentUser, Model model, HttpServletRequest request) {
     model.addAttribute("connectionsToProviders", getConnectionRepository().findAllConnections());
-    try {
-      if (currentUser == null) {
-        return "redirect:/signin";
-      } else {
-        Account account = accountRepository.findAccountByUsername(currentUser.getName());
-        model.addAttribute(account);
-        model.addAttribute("userEmail", account.getUsername());
-        model.addAttribute("userNameHash", account.getuserNameHash());
-      }
-    } catch (org.springframework.dao.EmptyResultDataAccessException e) {
-      request.getSession().invalidate();
-      return "redirect:/signin";
-    }
+    logger.debug("show index page");
+//    try {
+//      if (currentUser == null) {
+//        return "redirect:/signin";
+//      } else {
+//        Account account = accountRepository.findAccountByUsername(currentUser.getName());
+//        model.addAttribute(account);
+//        model.addAttribute("userEmail", account.getUsername());
+//        model.addAttribute("userNameHash", account.getuserNameHash());
+//      }
+//    } catch (org.springframework.dao.EmptyResultDataAccessException e) {
+//      request.getSession().invalidate();
+//      return "redirect:/signin";
+//    }
     return "index";
   }
 

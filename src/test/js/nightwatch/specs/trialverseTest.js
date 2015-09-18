@@ -1,5 +1,5 @@
 module.exports = {
-  'Demo test addis' : function (browser) {
+  'Demo test trialvese' : function (browser) {
     browser
       .url('https://trialverse.org')
       .waitForElementVisible('body', 3000)

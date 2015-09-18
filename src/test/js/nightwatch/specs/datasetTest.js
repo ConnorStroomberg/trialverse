@@ -11,7 +11,7 @@ var datasetUrl = protocol + host + '/#/users/'+ userHash +'/datasets/' + dataset
 var datasetHeader = 'body > div.ng-scope > div > div > div.row.nav-bar-spacer > div > h1';
 var studyTableStudyTitle = 'body > div.ng-scope > div > div > div:nth-child(3) > div > table > tbody > tr > td:nth-child(1) > a';
 var studyNavbarLabel = 'body > div.ng-scope > div > div > div > navbar-directive > div > nav > section > ng-transclude > ul > li.name > h1 > a';
-
+var arm1 = '#arms > div > div > category-item-directive > div.ng-scope > ul > li:nth-child(1) > span.ng-binding';
 // test the dataset page
 module.exports = {
   "Trialverse dataset readonly walkthough test" : function (browser) {
@@ -24,6 +24,7 @@ module.exports = {
       .click(studyTableStudyTitle)
       .pause(3000)
       .assert.containsText(studyNavbarLabel, 'Demo dataset / demo study 1')
+      .assert.containsText(arm1, 'Arm 1')
       .end();
   }
 };

@@ -25,7 +25,7 @@ module.exports = {
       .pause(3000)
       .assert.containsText(studyNavbarLabel, 'Demo dataset / demo study 1')
       .assert.containsText(arm1, 'Arm 1')
-      .quit();
+      .end();
   }
 };
   
